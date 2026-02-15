@@ -6,6 +6,11 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: "none" | "sm" | "md" | "lg"
 }
 
+interface CardValueProps 
+  extends React.HTMLAttributes<HTMLParagraphElement> {
+  children: React.ReactNode
+}
+
 const paddingMap = {
   none: "",
   sm: "p-4",
@@ -37,6 +42,20 @@ export function CardTitle({ children, className }: { children: React.ReactNode; 
   return <h3 className={cn("text-sm font-medium text-muted-foreground", className)}>{children}</h3>
 }
 
-export function CardValue({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <p className={cn("text-2xl font-semibold text-card-foreground tracking-tight", className)}>{children}</p>
+export function CardValue({
+  children,
+  className,
+  ...props
+}: CardValueProps) {
+  return (
+    <p
+      className={cn(
+        "text-2xl font-semibold text-card-foreground tracking-tight",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </p>
+  )
 }

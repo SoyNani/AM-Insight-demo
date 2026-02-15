@@ -51,7 +51,11 @@ export function RevenueChart() {
                 fontSize: "0.75rem",
                 color: "var(--card-foreground)",
               }}
-              formatter={(value: number) => [`$${value.toLocaleString()}`, ""]}
+              formatter={(value) => {
+                if (value === undefined) return ["$0", ""]
+                return [`$${value.toLocaleString()}`, ""]
+              }}
+
             />
             <Legend
               wrapperStyle={{ fontSize: "0.75rem" }}
