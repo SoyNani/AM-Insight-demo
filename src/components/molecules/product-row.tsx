@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { Badge } from "@/components/atoms/badge"
 import { Button } from "@/components/atoms/button"
 import { formatCurrency } from "@/lib/utils"
@@ -35,12 +34,11 @@ export function ProductRow({ product, onDelete, isDeleting }: ProductRowProps) {
       <td className="px-4 py-3">
         <div className="flex items-center gap-3">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-border bg-card">
-            <Image
+            <img
               src={product.image}
               alt={product.title}
-              fill
-              className="object-contain p-1"
-              sizes="40px"
+              className="absolute inset-0 h-full w-full object-contain p-1"
+              loading="lazy"
             />
           </div>
           <div className="min-w-0">
