@@ -23,8 +23,8 @@ export function MetricCard({
   return (
     <Card
       className={cn(
-        "relative overflow-hidden border-none bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-card/40 dark:backdrop-blur-xl dark:ring-1 dark:ring-white/10",
-        "animate-fade-in",
+        "relative overflow-hidden card p-6 shadow-sm transition-all duration-300 hover:shadow-md",
+        "bg-card text-card-foreground border border-border dark:bg-card dark:text-card-foreground dark:border-border animate-fade-in",
         className
       )}
       style={{ animationDelay: `${delay}ms` }}

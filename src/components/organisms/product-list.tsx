@@ -18,10 +18,10 @@ export function ProductList() {
 
     return (
         <>
-            <div className="rounded-xl border border-border bg-card/50 p-6 backdrop-blur-xl">
+            <div className="card">
                 <div className="mb-4 flex items-center justify-between">
-                    <h3 className="font-semibold">Productos Recientes</h3>
-                    <Button variant="ghost" size="sm" className="text-xs">Ver todos</Button>
+                    <h3 className="font-semibold text-lg text-foreground">Productos Recientes</h3>
+                    <Button variant="ghost" size="sm" className="button-secondary text-xs">Ver todos</Button>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -48,15 +48,14 @@ export function ProductList() {
                                                 />
                                             </div>
                                             <div className="flex flex-col max-w-[180px]">
-                                                <span className="truncate font-semibold">{product.title}</span>
+                                                <span className="truncate font-semibold text-foreground">{product.title}</span>
                                                 <span className="text-xs text-muted-foreground truncate">{product.category}</span>
                                             </div>
                                         </div>
                                     </td>
                                     <td className="py-3">
-                                        <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-500 ring-1 ring-inset ring-emerald-500/20">
-                                            Activo
-                                        </span>
+                                        {/* Estado visual: ejemplo, alternar según estado real si lo tienes */}
+                                        <span className="badge badge-success">Activo</span>
                                     </td>
                                     <td className="py-3 text-right text-muted-foreground">32%</td>
                                     <td className="py-3 text-right font-medium">

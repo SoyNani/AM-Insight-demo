@@ -25,8 +25,8 @@ const data = [
 export function IncomeChart() {
     return (
         <Card className={cn(
-            "border-none bg-white p-6 shadow-sm dark:bg-card/40 dark:backdrop-blur-xl dark:ring-1 dark:ring-white/10",
-            "animate-fade-in"
+            "card p-6 shadow-sm animate-fade-in",
+            "bg-card text-card-foreground border border-border dark:bg-card dark:text-card-foreground dark:border-border"
         )}>
             <h3 className="mb-6 text-base font-semibold text-foreground">
                 Ingresos Mensuales
@@ -36,8 +36,8 @@ export function IncomeChart() {
                     <AreaChart data={data}>
                         <defs>
                             <linearGradient id="colorIngresos" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.3} />
-                                <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
+                                <stop offset="5%" stopColor="var(--color-primary)" stopOpacity={0.3} />
+                                <stop offset="95%" stopColor="var(--color-primary)" stopOpacity={0} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid
@@ -74,11 +74,11 @@ export function IncomeChart() {
                         <Area
                             type="monotone"
                             dataKey="ingresos"
-                            stroke="var(--primary)"
+                            stroke="var(--color-primary)"
                             strokeWidth={2}
                             fillOpacity={1}
                             fill="url(#colorIngresos)"
-                            activeDot={{ r: 4, strokeWidth: 0, fill: "var(--primary)" }}
+                            activeDot={{ r: 4, strokeWidth: 0, fill: "var(--color-primary)" }}
                         />
                     </AreaChart>
                 </ResponsiveContainer>

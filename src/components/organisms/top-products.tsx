@@ -35,8 +35,8 @@ const products = [
 export function TopProducts() {
     return (
         <Card className={cn(
-            "border-none bg-white p-6 shadow-sm dark:bg-card/40 dark:backdrop-blur-xl dark:ring-1 dark:ring-white/10",
-            "animate-fade-in"
+            "card p-6 shadow-sm animate-fade-in",
+            "bg-card text-card-foreground border border-border dark:bg-card dark:text-card-foreground dark:border-border"
         )}
             style={{ animationDelay: "200ms" }}
         >

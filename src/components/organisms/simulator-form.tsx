@@ -37,7 +37,7 @@ export function SimulatorForm() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {/* Input Form */}
-      <Card className="animate-fade-in">
+      <Card className="animate-fade-in card">
         <h3 className="mb-6 text-base font-semibold text-foreground">
           Parametros del Producto
         </h3>
@@ -85,15 +85,15 @@ export function SimulatorForm() {
       {/* Results */}
       <div className="flex flex-col gap-4">
         <Card
-          className="animate-fade-in border-2"
+          className="animate-fade-in card border-2"
           style={{
             animationDelay: "100ms",
             borderColor:
               profitStatus === "positive"
-                ? "var(--success)"
+                ? "var(--color-success)"
                 : profitStatus === "negative"
-                  ? "var(--destructive)"
-                  : "var(--border)",
+                  ? "var(--color-destructive)"
+                  : "var(--color-border)",
           }}
         >
           <CardHeader>
@@ -119,10 +119,10 @@ export function SimulatorForm() {
             style={{
               color:
                 profitStatus === "positive"
-                  ? "var(--success)"
+                  ? "var(--color-success)"
                   : profitStatus === "negative"
-                    ? "var(--destructive)"
-                    : "var(--foreground)",
+                    ? "var(--color-destructive)"
+                    : "var(--color-foreground)",
             }}
           >
             {formatCurrency(simulation.profit)}
@@ -135,24 +135,28 @@ export function SimulatorForm() {
             label="Margen de Ganancia"
             value={`${simulation.marginPercent.toFixed(1)}%`}
             delay={200}
+            className="card"
           />
           <ResultCard
             icon={<DollarSign className="h-4 w-4" />}
             label="Comision ML"
             value={formatCurrency(simulation.margin)}
             delay={300}
+            className="card"
           />
           <ResultCard
             icon={<Truck className="h-4 w-4" />}
             label="Costo Total"
             value={formatCurrency(amazonPrice + shippingCost)}
             delay={400}
+            className="card"
           />
           <ResultCard
             icon={<TrendingUp className="h-4 w-4" />}
             label="Precio de Venta"
             value={formatCurrency(mlPrice)}
             delay={500}
+            className="card"
           />
         </div>
       </div>
@@ -165,15 +169,17 @@ function ResultCard({
   label,
   value,
   delay = 0,
+  className = "",
 }: {
   icon: React.ReactNode
   label: string
   value: string
   delay?: number
+  className?: string
 }) {
   return (
     <Card
-      className="animate-fade-in"
+      className={`animate-fade-in ${className}`}
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-center gap-2 text-muted-foreground">

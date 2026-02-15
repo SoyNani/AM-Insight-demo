@@ -29,7 +29,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-30 flex h-screen flex-col border-r border-border bg-sidebar transition-all duration-300",
+        "sidebar fixed left-0 top-0 z-30 flex h-screen flex-col border-r border-border bg-sidebar transition-all duration-300",
         collapsed ? "w-16" : "w-60"
       )}
     >
@@ -39,8 +39,8 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
           <BarChart3 className="h-4 w-4 text-primary-foreground" />
         </div>
         {!collapsed && (
-          <span className="text-sm font-semibold text-foreground whitespace-nowrap animate-fade-in">
-            Automeli Insight
+          <span className="text-sm font-semibold text-primary whitespace-nowrap animate-fade-in">
+            <span style={{ color: 'var(--color-primary)' }}>Autome</span><span style={{ color: 'var(--color-accent)' }}>li Insight</span>
           </span>
         )}
       </div>
@@ -58,8 +58,8 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
                   className={cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200",
                     isActive
-                      ? "bg-primary/10 text-primary"
-                      : "text-sidebar-foreground hover:bg-sidebar-accent"
+                      ? "active"
+                      : "hover:bg-sidebar-accent text-sidebar-foreground"
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >

@@ -69,7 +69,7 @@ export function AddProductModal() {
 
     if (!isOpen) {
         return (
-            <Button onClick={() => setIsOpen(true)} className="gap-2">
+            <Button onClick={() => setIsOpen(true)} className="gap-2 button-primary">
                 <Plus className="h-4 w-4" />
                 Agregar Producto
             </Button>
