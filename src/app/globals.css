@@ -166,3 +166,44 @@ body {
 .animate-count-up {
   animation: count-up 0.6s ease-out forwards;
 }
+
+/* Responsive helpers */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Sidebar mobile behavior helpers (used by components) */
+.sidebar {
+  will-change: transform;
+}
+
+/* Ensure sidebar has a solid background and contrast on mobile */
+.sidebar {
+  background-color: var(--color-sidebar);
+  color: var(--color-sidebar-foreground);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+/* Mobile utility classes for non-js toggle fallback */
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+
+  /* CSS-only fallback: a class applied to sidebar to override hidden state */
+  .sidebar.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  .no-scroll {
+    overflow: hidden !important;
+  }
+}

@@ -77,8 +77,11 @@ export function AddProductModal() {
     }
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
-            <div className="w-full max-w-md rounded-xl bg-card p-6 shadow-xl ring-1 ring-border animate-scale-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 animate-fade-in">
+            <div
+                className="w-full max-w-md rounded-xl bg-card p-6 shadow-2xl ring-1 ring-border animate-scale-in"
+                style={{ backgroundColor: 'var(--color-card)', backdropFilter: 'none' }}
+            >
                 <div className="mb-4 flex items-center justify-between">
                     <h2 className="text-lg font-semibold">Nuevo Producto</h2>
                     <Button

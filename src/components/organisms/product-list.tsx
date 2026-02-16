@@ -30,17 +30,17 @@ export function ProductList() {
                             <tr>
                                 <th className="pb-3 font-medium">Producto</th>
                                 <th className="pb-3 font-medium">Estado</th>
-                                <th className="pb-3 font-medium text-right">Margen</th>
-                                <th className="pb-3 font-medium text-right">Ventas</th>
-                                <th className="pb-3 font-medium text-right">Acciones</th>
+                                <th className="pb-3 font-medium text-right hidden sm:table-cell">Margen</th>
+                                <th className="pb-3 font-medium text-right hidden sm:table-cell">Ventas</th>
+                                <th className="pb-3 font-medium text-right hidden sm:table-cell">Acciones</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-border/30">
                             {recentProducts.map((product) => (
                                 <tr key={product.id} className="group hover:bg-muted/30 transition-colors">
-                                    <td className="py-3 font-medium">
-                                        <div className="flex items-center gap-3">
-                                            <div className="h-8 w-8 rounded bg-muted/50 p-1 overflow-hidden shrink-0">
+                                    <td className="py-3 font-medium align-top">
+                                        <div className="flex items-start gap-3">
+                                            <div className="h-7 w-7 sm:h-8 sm:w-8 rounded bg-muted/50 p-1 overflow-hidden shrink-0">
                                                 <img
                                                     src={product.image}
                                                     alt=""
@@ -50,23 +50,35 @@ export function ProductList() {
                                             <div className="flex flex-col max-w-[180px]">
                                                 <span className="truncate font-semibold text-foreground">{product.title}</span>
                                                 <span className="text-xs text-muted-foreground truncate">{product.category}</span>
+                                                {/* Mobile compact info */}
+                                                <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground sm:hidden">
+                                                    <span>Margen: <strong className="text-foreground">32%</strong></span>
+                                                    <span>Ventas: <strong className="text-foreground">{Math.floor(Math.random() * 50) + 10}</strong></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="py-3">
-                                        {/* Estado visual: ejemplo, alternar según estado real si lo tienes */}
+                                    <td className="py-3 align-top">
                                         <span className="badge badge-success">Activo</span>
                                     </td>
-                                    <td className="py-3 text-right text-muted-foreground">32%</td>
-                                    <td className="py-3 text-right font-medium">
-                                        {/* Mock sales data since API doesn't provide it */}
+                                    <td className="py-3 text-right text-muted-foreground hidden sm:table-cell">32%</td>
+                                    <td className="py-3 text-right font-medium hidden sm:table-cell">
                                         {Math.floor(Math.random() * 50) + 10}
                                     </td>
-                                    <td className="py-3 text-right">
+                                    <td className="py-3 text-right hidden sm:table-cell">
                                         <ProductActions
                                             onView={() => setViewProduct(product)}
                                             onDelete={() => setDeleteProduct(product)}
                                         />
+                                    </td>
+                                    {/* Mobile actions: show under product cell */}
+                                    <td className="py-2 sm:hidden">
+                                        <div className="flex items-center gap-2">
+                                            <ProductActions
+                                                onView={() => setViewProduct(product)}
+                                                onDelete={() => setDeleteProduct(product)}
+                                            />
+                                        </div>
                                     </td>
                                 </tr>
                             ))}

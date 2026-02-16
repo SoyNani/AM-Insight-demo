@@ -45,17 +45,17 @@ export function TopProducts() {
             </h3>
             <div className="space-y-6">
                 {products.map((product, index) => (
-                    <div key={product.id} className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary dark:bg-primary/20">
+                    <div key={product.id} className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4 min-w-0">
+                            <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary dark:bg-primary/20">
                                 {index + 1}
                             </div>
-                            <div>
-                                <p className="text-sm font-medium text-foreground">{product.name}</p>
+                            <div className="min-w-0">
+                                <p className="text-sm font-medium text-foreground truncate">{product.name}</p>
                                 <p className="text-xs text-muted-foreground">{product.sales} uds</p>
                             </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right flex-shrink-0">
                             <p className="text-sm font-bold text-foreground">
                                 ${product.revenue.toLocaleString()}
                             </p>

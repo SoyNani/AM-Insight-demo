@@ -15,6 +15,8 @@ import {
 interface SidebarProps {
   collapsed: boolean
   onToggle: () => void
+  mobileOpen?: boolean
+  onMobileClose?: () => void
 }
 
 const navItems = [
@@ -23,14 +25,23 @@ const navItems = [
   { href: "/dashboard/simulator", label: "Simulador", icon: Calculator },
 ]
 
-export function Sidebar({ collapsed, onToggle }: SidebarProps) {
+export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: SidebarProps) {
   const pathname = usePathname()
 
   return (
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm sm:hidden"
+          onClick={onMobileClose}
+          aria-hidden
+        />
+      )}
     <aside
       className={cn(
-        "sidebar fixed left-0 top-0 z-30 flex h-screen flex-col border-r border-border bg-sidebar transition-all duration-300",
-        collapsed ? "w-16" : "w-60"
+        "sidebar fixed left-0 top-0 z-40 flex h-screen flex-col border-r border-border bg-sidebar transition-transform duration-300 transform",
+        collapsed ? "w-16 sm:w-16" : "w-60 sm:w-60",
+        mobileOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"
       )}
     >
       {/* Logo */}
@@ -89,5 +100,6 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
         </button>
       </div>
     </aside>
+    </>
   )
 }
