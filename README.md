@@ -1,4 +1,4 @@
-# 🚀 Automeli Insight
+# 🚀Data Insight
 
 Dashboard que simula el funcionamiento de una herramienta de análisis para vendedores que hacen **dropshipping** en MercadoLibre. Permite visualizar métricas clave, gestionar productos y simular márgenes de ganancia en tiempo real.
 
@@ -9,7 +9,7 @@ https://insight-demo-six.vercel.app/dashboard
 
 ## 📌 Descripción del Proyecto
 
-Automeli Insight es una aplicación frontend construida con **Next.js 16** y **React 19** que consume la API pública FakeStore API para simular un entorno real de e-commerce.
+Data Insight es una aplicación frontend construida con **Next.js 16** y **React 19** que consume la API pública FakeStore API para simular un entorno real de e-commerce.
 
 Incluye:
 

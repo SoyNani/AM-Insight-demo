@@ -7,7 +7,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Automeli Insight - Dashboard para Dropshipping",
+  title: "Data Insight - Dashboard para Dropshipping",
   description:
     "Herramienta de análisis y gestión para vendedores de MercadoLibre que hacen dropshipping desde Amazon.",
 }

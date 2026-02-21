@@ -51,7 +51,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
         </div>
         {!collapsed && (
           <span className="text-sm font-semibold text-primary whitespace-nowrap animate-fade-in">
-            <span style={{ color: 'var(--color-primary)' }}>Autome</span><span style={{ color: 'var(--color-accent)' }}>li Insight</span>
+            <span style={{ color: 'var(--color-primary)' }}>Dat</span><span style={{ color: 'var(--color-accent)' }}>a Insight</span>
           </span>
         )}
       </div>
